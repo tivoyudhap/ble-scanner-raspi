@@ -1,1 +1,1 @@
-beacontools
+beacontools[scan]==2.0.2
