@@ -1,1 +1,1 @@
-beacontools[scan]==2.0.2
+bluepy
