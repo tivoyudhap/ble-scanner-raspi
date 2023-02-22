@@ -18,7 +18,10 @@ for device in devices:
             minor_hex = value[44:48]
             major = int(major_hex, 16)
             minor = int(minor_hex, 16)
+            tx_power = int(value[38:40], 16) - 256
 
-            distance = 10 ** ((BEACON_TX_POWER - device.rssi) / (10 * PATH_LOSS_EXPONENT))
+            distance = 10 ** ((tx_power - device.rssi) / (10 * PATH_LOSS_EXPONENT))
+
+            print(distance)
             
-            print("iBeacon found: UUID={}, major={}, minor={}, RSSI={} dB, distance={}".format(uuid_str, major, minor, device.rssi, distance))
+            print("iBeacon found: UUID={}, major={}, minor={}, RSSI={} dB, distance={%.2f}".format(uuid_str, major, minor, device.rssi, distance))
